@@ -1,0 +1,39 @@
+---
+layout: default
+---
+
+<article class="post">
+  <h1>{{ page.title }}</h1>
+
+  <div class="entry">
+    {{ content }}
+  </div>
+
+
+<div class='container' style='height:50px; width:100%; background-color:lightgrey; padding:10px'>
+  <div class="date">
+    Posted on {{ page.date | date: "%e %B %Y" }}
+  </div>
+</div>
+  <!-- List posts at the bottom -->
+  <h2>More Posts</h2>
+  <div class="posts">
+    {% for post in site.posts %}
+      {% if post.title != page.title %}
+      <hr>
+        <article class="post">
+          
+          <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+    
+          <div class="entry">
+            {{ post.excerpt }}
+          </div>
+          
+          <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+        </article>
+        {% endif %}
+    {% endfor %}
+  </div>
+
+  {% include disqus.html %}
+</article>
