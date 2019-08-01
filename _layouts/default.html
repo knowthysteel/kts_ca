@@ -43,7 +43,11 @@
       <div class="container">
         <footer class="footer">
           {% include svg-icons.html %}
-          © 2019 {{ site.name }}
+          © <script type="text/javascript">
+          var today = new Date()
+          var year = today.getFullYear()
+          document.write(year)
+          </script> {{ site.name }}
         </footer>
       </div>
     </div>
